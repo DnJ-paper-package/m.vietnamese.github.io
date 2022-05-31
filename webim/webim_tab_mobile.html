@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>chat with us</title>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
+    <script type="text/javascript" src="md5.js"></script>
+    <script>
+        var webim_config = {
+            path : "/webim/",
+            selector : "button[chatnow]",
+            title_info : "Chat with Supplier",
+            title_chat : "Chat with Supplier",
+            getseller : "/getseller.html",
+            device : 1,
+            getpinfo : function (selector)
+            {
+                return {
+                    type : $( selector ).attr( "type" ),
+                    pid : $( selector ).attr( "pid" ),
+                    pname : $( selector ).attr( "pname" ),
+                    purl : $( selector ).attr( "purl" ),
+                    picurl : $( selector ).attr( "picurl" )
+                };
+            },
+            //语言包内容
+            getlancontent : function (selector)
+            {
+                return $( selector ).attr( "lancontent" )
+            }
+        };
+
+        var g_getseller = null;
+    </script>
+    <script type="text/javascript" src="webim_tab.js"></script>
+    <style>
+        svg.icon {
+            display: none;
+        }
+        #ECER_BACK_CHAT { display: none!important; }
+        #ECER_HEADER_TIP {
+            padding-left: 36px!important;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+</html>

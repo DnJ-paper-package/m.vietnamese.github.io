@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no" name="format-detection">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="preload" type="text/css" as="style" href="/themes/mobile14/style/css/commonV2.css">
+<link type="text/css" rel="stylesheet" href="/themes/mobile14/style/css/commonV2.css" media="all">
+    <style type="text/css">
+        .showdetail .bestfor{
+            margin-top: 0.16rem;
+        }
+        .showdetail .saveYourTime{
+            margin: 0.16rem auto;
+        }
+        .closemask{
+            display: none;
+        }
+        .showdetail .tableMore1 .tableC{
+            padding-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 顶部search s-->
+<style>
+    #dialog-content-pql {
+        max-height: 90%;
+        overflow: auto;
+        font-size: 12px;
+    }
+
+    #dialog-content-pql .quote-item input {
+        margin-bottom: 0;
+    }
+
+    #dialog-content-pql .quote-item {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    #dialog-content-pql .quote-item * {
+        box-sizing: border-box;
+    }
+
+    #dialog-content-pql .quote-item .item-title {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    #dialog-content-pql .quote-item input:not([type="checkbox"]),
+    #dialog-content-pql .quote-item .select-wrap {
+        width: 100%;
+        border: 0;
+        background-color: #f4f6f5;
+        padding: 0 16px;
+        font-size: 14px;
+        height: 2.7em;
+    }
+
+    #dialog-content-pql .quote-item .select-wrap select {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        appearance: auto;
+        background: transparent;
+        outline: 0;
+    }
+
+    #dialog-content-pql .quote-item .tip-info {
+        padding-left: 6px;
+        color: #666;
+        line-height: 20px;
+        font-size: .9em;
+        padding-top: 3px;
+    }
+
+    #dialog-content-pql .quote-item .errorTip {
+        font-size: .85em;
+    }
+
+    #dialog-content-pql .quote-item .errorTip .icon {
+        font-size: 1em;
+    }
+
+    #dialog-content-pql .quote-item .quote-unit {
+        position: relative;
+        padding: 0 14px 0 10px;
+        font-size: 14px;
+        line-height: 2.7em;
+        color: #222;
+        background-color: #ddd;
+        border-radius: 0;
+        z-index: 5;
+    }
+
+    #dialog-content-pql .quote-item .with-unit-wrap {
+        display: flex;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap label {
+        position: relative;
+        z-index: 1;
+        font-size: .85em;
+        margin-right: 16px;
+        margin-bottom: 8px;
+        line-height: 30px;
+        padding: 0 12px;
+        border: 1px solid #ddd;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap label span {
+        display: block;
+        user-select: none;
+        color: #666;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap [type=checkbox] {
+        height: 10px;
+        width: 10px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap label.on {
+        background: #fff5e6;
+        border-color: #ff9900;
+        box-shadow: 0 0 0 1px #ff9900 inset
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap label.on span {
+        color: #222;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap label.on::before,
+    #dialog-content-pql .quote-item .checkbox-wrap label.on::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #ff9900;
+        border-right-color: #ff9900;
+    }
+
+    #dialog-content-pql .quote-item .checkbox-wrap label.on::after {
+        width: 6px;
+        height: 6px;
+        border: 2px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        transform: translate(-2px, -3px) rotate(45deg);
+    }
+
+    #dialog-content-pql .quote-item .errorTip {
+        display: flex;
+        font-size: 13px;
+        color: red;
+        align-items: center;
+        line-height: 20px;
+    }
+
+    #dialog-content-pql .quote-item .errorTip>span {
+        border-radius: 50%;
+        background: red;
+        width: 16px;
+        height: 16px;
+        line-height: 13px;
+        vertical-align: middle;
+        color: #fff;
+        text-align: center;
+        margin-right: 6px;
+    }
+
+    #dialog-content-pql .quote-item .select-wrap {
+        position: relative;
+    }
+
+    #dialog-content-pql .quote-item .quote-unit::before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        width: 4px;
+        height: 100%;
+        background: inherit;
+    }
+</style>
+<script>
+    
+        var originProductInfo = {"pid":14212497,"name":"H\u1ed9p qu\u00e0 gi\u1ea5y b\u00eca c\u1ee9ng b\u00e1o ch\u00ed Komori 4C","source_url":"\/sale-14212497-komori-4c-press-cardboard-paper-gift-box.html","showproduct":1,"price":"Fructuated","moq":"100-1000 b\u1ed9","propertyDetail":[["T\u00ean s\u1ea3n ph\u1ea9m","H\u1ed9p ng\u0103n k\u00e9o trang s\u1ee9c"],["\u0110\u1eb7c t\u00ednh","V\u1eadt li\u1ec7u t\u00e1i ch\u1ebf"]],"picurl":"\/\/m.vietnamese.paper-package.com\/photo\/pd35524695-komori_4c_press_cardboard_paper_gift_box.jpg","subject":"B\u1ea1n c\u00f3 th\u1ec3 cung c\u1ea5pH\u1ed9p qu\u00e0 gi\u1ea5y b\u00eca c\u1ee9ng b\u00e1o ch\u00ed Komori 4C\u0110\u1ed1i v\u1edbi ch\u00fang t\u00f4i","username":"cnjillhung"};
+    var pinfo = '{\"pid\":14212497,\"name\":\"H\\u1ed9p qu\\u00e0 gi\\u1ea5y b\\u00eca c\\u1ee9ng b\\u00e1o ch\\u00ed Komori 4C\",\"source_url\":\"\\/sale-14212497-komori-4c-press-cardboard-paper-gift-box.html\",\"showproduct\":1,\"price\":\"Fructuated\",\"moq\":\"100-1000 b\\u1ed9\",\"propertyDetail\":[[\"T\\u00ean s\\u1ea3n ph\\u1ea9m\",\"H\\u1ed9p ng\\u0103n k\\u00e9o trang s\\u1ee9c\"],[\"\\u0110\\u1eb7c t\\u00ednh\",\"V\\u1eadt li\\u1ec7u t\\u00e1i ch\\u1ebf\"]],\"picurl\":\"\\/\\/m.vietnamese.paper-package.com\\/photo\\/pd35524695-komori_4c_press_cardboard_paper_gift_box.jpg\",\"subject\":\"B\\u1ea1n c\\u00f3 th\\u1ec3 cung c\\u1ea5pH\\u1ed9p qu\\u00e0 gi\\u1ea5y b\\u00eca c\\u1ee9ng b\\u00e1o ch\\u00ed Komori 4C\\u0110\\u1ed1i v\\u1edbi ch\\u00fang t\\u00f4i\",\"username\":\"cnjillhung\"}';
+        var save_url = "/contactsave.html";
+    var update_url = "/updateinquiry.html";
+    var defaulProductInfo = {};
+    var myDate = new Date();
+    var curDate = myDate.getFullYear()+'-'+(parseInt(myDate.getMonth())+1)+'-'+myDate.getDate();
+    resInfo = originProductInfo;
+    defaulProductInfo.pid = resInfo['pid'];
+    defaulProductInfo.subject = resInfo['subject'];
+
+    var g_inquirypopup = 1;
+    var message_1 = 'Kính thưa,'+'\r\n'+""+' '+trim(resInfo['name'])+", bạn có thể gửi cho tôi thêm chi tiết như loại, kích thước, MOQ, vật liệu, v.v."+'\r\n'+""+'\r\n'+"Chờ hồi âm của bạn.";
+    var message_2 = 'Xin chào,'+'\r\n'+"Tôi đang tìm kiếm"+' '+trim(resInfo['name'])+", xin vui lòng gửi cho tôi giá cả, đặc điểm kỹ thuật và hình ảnh."+'\r\n'+"Phản hồi nhanh chóng của bạn sẽ được đánh giá cao."+'\r\n'+"Hãy liên hệ với tôi để biết thêm thông tin."+'\r\n'+"Cảm ơn rất nhiều.";
+    var message_3 = 'Xin chào,'+'\r\n'+trim(resInfo['name'])+' '+"đáp ứng mong đợi của tôi."+'\r\n'+"Vui lòng cho tôi giá tốt nhất và một số thông tin sản phẩm khác."+'\r\n'+"Hãy liên hệ với tôi qua thư của tôi."+'\r\n'+"Cảm ơn rất nhiều.";
+
+    var message_4 = 'Kính thưa,'+'\r\n'+"Giá FOB của bạn là bao nhiêu"+' '+trim(resInfo['name'])+'?'+'\r\n'+"Tên cảng nào gần nhất?"+'\r\n'+"Vui lòng trả lời tôi càng sớm càng tốt, sẽ tốt hơn nếu chia sẻ thêm thông tin."+'\r\n'+"Trân trọng!";
+    var message_5 = 'Xin chào,'+'\r\n'+"Tôi rất quan tâm đến bạn"+' '+trim(resInfo['name'])+'.'+'\r\n'+"Vui lòng gửi cho tôi chi tiết sản phẩm của bạn."+'\r\n'+"Mong nhận được hồi âm nhanh chóng của bạn."+'\r\n'+"Hãy liên hệ với tôi qua thư."+'\r\n'+"Trân trọng!";
+
+    var message_6 = 'Kính thưa,'+'\r\n'+"Vui lòng cung cấp cho chúng tôi thông tin về"+' '+trim(resInfo['name'])+", chẳng hạn như loại, kích thước, chất liệu, và tất nhiên là giá cả tốt nhất."+'\r\n'+"Mong nhận được hồi âm nhanh chóng của bạn."+'\r\n'+"Cho tôi biết!";
+    var message_7 = 'Kính thưa,'+'\r\n'+"Bạn có thể cung cấp"+' '+trim(resInfo['name'])+" cho chúng tôi?"+'\r\n'+"Đầu tiên chúng tôi muốn có một bảng giá và một số thông tin chi tiết về sản phẩm."+'\r\n'+"Tôi hy vọng sẽ nhận được trả lời càng sớm càng tốt và mong được hợp tác."+'\r\n'+"Cảm ơn rât nhiều.";
+    var message_8 = 'Chào,'+'\r\n'+"Tôi đang tìm kiếm"+' '+trim(resInfo['name'])+", xin vui lòng cho tôi một số thông tin sản phẩm chi tiết hơn."+'\r\n'+"Tôi mong được trả lời của bạn."+'\r\n'+"Cho tôi biết!";
+    var message_9 = 'Xin chào,'+'\r\n'+"Của bạn"+' '+trim(resInfo['name'])+" đáp ứng yêu cầu của tôi rất tốt."+'\r\n'+"Xin vui lòng gửi cho tôi giá cả, thông số kỹ thuật và mô hình tương tự sẽ được."+'\r\n'+"Hãy trò chuyện với tôi."+'\r\n'+"";
+    var message_10 = 'Kính thưa,'+'\r\n'+"Tôi muốn biết thêm về các chi tiết và báo giá của"+' '+trim(resInfo['name'])+'.'+'\r\n'+"Cứ tự nhiên liên lạc tôi."+'\r\n'+"Trân trọng!";
+
+    var r = getRandom(1,10);
+
+    defaulProductInfo.message = eval("message_"+r);
+        //defaulProductInfo.message = '';
+    function getRandom(m,n){
+    　　var num = Math.floor(Math.random()*(m - n) + n);
+    　　return num;
+    };
+    function trim(str)
+    {
+        str = str.replace(/(^\s*)/g,"");
+        return str.replace(/(\s*$)/g,"");
+    };
+    var form_serialize = '';
+    function beforestrBtn() {
+        form_serialize = '';
+                form_serialize = form_serialize.replace(/\+/g, "%2B");
+        strBtn();
+    }
+    function toCheckMust(name) {
+        $('#'+name+'error').hide();
+    }
+    window.addEventListener('load', function () {
+        $('.checkbox-wrap label').each(function(){
+            if($(this).find('input').prop('checked')){
+                $(this).addClass('on')
+            }else {
+                $(this).removeClass('on')
+            }
+        })
+        $(document).on('click', '.checkbox-wrap label' , function(ev){
+            if (ev.target.tagName.toUpperCase() != 'INPUT') {
+                $(this).toggleClass('on')
+            }
+        })
+    })
+</script>
+<div class="leave-message-dialog" style="display: none">
+        <style>
+            
+            .leave-message-dialog ul,.leave-message-dialog li{list-style:none}.dialog-content-pql-id .mr span{font-size:16px}.leave-message-dialog{background-color:rgba(0,0,0,0.5);position:fixed;top:0;right:0;bottom:0;left:0;z-index:10000;font-family:roboto,'helvetica narrow',PingFang-SC-Medium,PingFang-SC,sans-serif !important}.leave-message-dialog .dialog-content-pql{max-width:100%;width:90%;box-sizing:border-box;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:#ffffff;border-radius:4px;padding:30px 15px}.leave-message-dialog .dialog-content-pql-id{max-width:100%}.leave-message-dialog .close{position:absolute;width:15px;height:15px;top:15px;right:15px;cursor:pointer}.leave-message-dialog .close:before,.leave-message-dialog .close:after{position:absolute;content:"";background-color:#707070;width:15px;height:2px;top:50%;left:0}.leave-message-dialog .close:before{transform:rotate(45deg)}.leave-message-dialog .close:after{transform:rotate(-45deg)}.leave-message-dialog .title{font-size:24px;color:#333333;text-align:center;line-height:1.5}.leave-message-dialog p{margin:0}.leave-message-dialog .form{width:100%;margin-top:22px}.leave-message-dialog .form input,.leave-message-dialog .form .textarea{background-color:#F5F5F5;font-family:roboto,'helvetica narrow',PingFang-SC-Medium,PingFang-SC,sans-serif !important}.leave-message-dialog .form input,.leave-message-dialog .form textarea{display:block;width:100%;border-radius:4px;border:none;outline:none;box-sizing:border-box;padding:12px 19px;line-height:20px;margin-bottom:15px;text-indent:0}.leave-message-dialog .form input{height:44px}.leave-message-dialog .form .textarea{position:relative}.leave-message-dialog .form textarea{height:200px;resize:none;background-color:transparent;position:relative;z-index:1}textarea::-webkit-input-placeholder{font-family:roboto,'helvetica narrow',PingFang-SC-Medium,PingFang-SC,sans-serif !important}.leave-message-dialog .form::-webkit-input-placeholder{font-size:16px;color:#999999}.leave-message-dialog .form:-moz-placeholder{font-size:16px;color:#999999}.leave-message-dialog .form::-moz-placeholder{font-size:16px;color:#999999}.leave-message-dialog .form:-ms-input-placeholder{font-size:16px;color:#999999}.leave-message-dialog .form #submitStart{margin:0 auto}.leave-message-dialog .form #submitStart:hover{filter:brightness(110%)}.dialog-content-pql-id .img{width:100%;height:200px;border-radius:2px;display:inline-block;position:relative}.dialog-content-pql-id .img img{max-width:100%;max-height:100%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}.dialog-content-pql-id .right{width:100%}.dialog-content-pql-id .title{text-align:left;word-wrap:break-word;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.dialog-content-pql-id input{width:100%;height:40px;margin-top:20px;border:none;outline:none;background:rgb(245,245,245);text-indent:16px;font-size:16px}.dialog-content-pql .btn{background:#3984FF;width:200px;height:40px;border-radius:4px;text-align:center;line-height:40px;font-size:18px;color:#fff;margin:0 auto;margin-top:30px;cursor:pointer;padding:0;}.dialog-content-pql .btn:hover{filter:brightness(110%)}.dialog-content-pql-id .mr{position:absolute;width:70px;height:40px;bottom:0;left:0;line-height:40px;text-align:center;color:rgb(117,117,117)}.dialog-content-pql-id .mr::before{position:absolute;content:"";display:block;border:5px solid #000;border-color:#000 transparent transparent transparent;top:50%;transform:translateY(-50%);right:5px;margin-top:3px}.dialog-content-pql-id .mr ul{position:absolute;width:100%;cursor:pointer;top:34px;background:rgb(245,245,245);box-shadow:0 3px 5px 0 rgba(0,0,0,.1);border:1px solid #ededed;display:none}.dialog-content-pql-ok .duihaook{width:80px;height:80px;margin:0 auto;margin-top:50px;margin-bottom:50px;position:relative}.dialog-content-pql-ok .duihaook::after{content:"";display:inline-block;background:rgb(52,218,0);width:35px;height:12px;transform:rotate(45deg);position:absolute;left:16px;top:35px;border-radius:2px}.dialog-content-pql-ok .duihaook::before{content:"";display:inline-block;background:rgb(164,255,148);width:50px;height:15px;transform:rotate(-45deg);position:absolute;left:32px;border-radius:2px;top:26px}.dialog-content-pql .error-pql{margin-top:-12px;margin-bottom:10px;color:red;display:none;font-size:14px;}.dialog-content-pql .icon-pql{width:20px;height:20px;display:inline-block;vertical-align:middle;background:red;border-radius:50%}.dialog-content-pql .icon-pql img{width:100%;height:100%}.dialog-content-pql-id .mr ul li:hover{filter:brightness(103%)}.dialog-content-pql-id .mr ul li:active{filter:brightness(108%)}.dialog-content-pql-id .mr ul li{background:rgb(245,245,245);user-select:none;font-size:16px}
+                
+        </style>
+        <div class="dialog-content-pql" id="dialog-content-pql" style="display: none">
+            <span class="close" onclick="closepql()"></span>
+            <div class="title">
+                <p class="firstp-pql">Để lại lời nhắn</p>
+                <p class="lastp-pql">Chúng tôi sẽ gọi lại cho bạn sớm!</p>
+            </div>
+            <div class="form">
+                                <div class="textarea">
+                    <textarea style="font-family: roboto,'helvetica narrow',PingFang-SC-Medium,PingFang-SC,sans-serif !important;" name="" id="textareamessage" cols="30" rows="10"
+                        placeholder=""></textarea>
+                </div>
+                                <p class="error-pql"> <span class="icon-pql"><img src="/themes/mobile14/style/images/error.png" alt="error.png"></span></p>
+                <input id="startEmail" type="text" placeholder="Nhập email của bạn">
+                <p class="error-pql"><span class="icon-pql"><img src="/themes/mobile14/style/images/error.png" alt="error.png"></span> </p>
+                <input style="display:none" id="startTel" oninput="value=value.replace(/[^0-9_+-]/g,'');" type="text" placeholder="Số điện thoại">
+                <div class="operations">
+                    <div class='btn' id="submitStart" type="submit" onclick="beforestrBtn()">Gửi đi</div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-content-pql dialog-content-pql-id" id="dialog-content-pql-id" style="display:none">
+            <input type="hidden" name="pop_pid" id="pop_pid" value="0">
+             <input type="hidden" name="pop_subject" id="pop_subject" value="">
+             <input type="hidden" name="pop_iid" id="pop_iid" value="0">
+             <input type="hidden" name="pop_uuid" id="pop_uuid" value="">
+            <span class="close" onclick="closepql2()"></span>
+            <div class="right">
+                <p class="title"></p>
+                <div style="position: relative;">
+                    <div class="mr"> <span id="Mr">Mr.</span>
+                        <ul>
+                            <li>Mr.</li>
+                            <li>Bà.</li>
+                        </ul>
+                    </div>
+                    <input style="text-indent: 80px;" type="text" id="idnamepql" placeholder="Your name">
+                </div>
+                <input type="text" id="idphonepql" placeholder="Số điện thoại">
+                <input type="text" id="idcompanypql" placeholder="Công ty">
+                <div class="btn" id="twoBtnOk" onclick="twoBtnOk()">được</div>
+            </div>
+        </div>
+        <div class="dialog-content-pql dialog-content-pql-ok" id="dialog-content-pql-ok" style="display:none">
+            <span class="close" onclick="closepql()"></span>
+            <div class="duihaook"></div>
+            <p class="title"></p>
+            <p class="p1" style="text-align: center; font-size: 18px; margin-top: 14px;">Chúng tôi sẽ gọi lại cho bạn sớm!</p>
+            <div class="btn" onclick="closepql()" id="endOk" style="margin: 0 auto;margin-top: 50px;">được</div>
+        </div>
+    </div>
+<div class="page_top">
+    <div class="topFix topfixshadow intercept" data-log="click-tab@top" style="display: block;">
+        <div class="search-box">
+            <a class="goback" onclick="window.history.go(-1);"><i class="iconfont icon13back"></i></a>
+            <div id="searchTap">
+                <form id="search">
+                        <input value="" name="search" type="search" placeholder="Những gì bạn đang tìm kiếm?" class="form-control" />
+                        <!-- <a class="delbtn" href="javascript:void(0);" style="display: none;"><i class="iconfont iconUnfold_16"></i></a> -->
+                        <button class="btn">sousou text<i class="iconfont icon13search icon-search"></i></button>
+                    
+                </form>
+            </div>
+            <div class="lanmu">
+                <div class="showlanmu" style="display: inline;    font-size: 0px;"> menu text lable<i class="iconfont icon13menu"></i></div>
+                <div  class="dellanmu close_pop" style="display: none;    font-size: 0px;">menu text lable<i class="iconfont icon13close"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 侧栏 -->
+
+<div class="menubox" id="menubox">
+    <div class="item">
+        <div class="itemScroll">
+            <div class="keylist">
+                <div><a href="/">
+                    <span class="icontitle">Nhà</span>
+                    <i class="iconfont icon13next"></i>
+                </a>
+            </div>
+                <div><a href="/products.html">
+                    <span class="icontitle">các sản phẩm</span>
+                    <i class="iconfont icon13next"></i>
+                </a>
+            </div>
+                <div><a href="/aboutus.html">
+                    <span class="icontitle">Về chúng tôi</span>
+                    <i class="iconfont icon13next"></i>
+                </a>
+            </div>
+                <div><a href="/contactnow.html">
+                    <span class="icontitle">Liên hệ chúng tôi</span>
+                    <i class="iconfont icon13next"></i>
+                </a>
+            </div>
+            </div>
+            
+                        <div class="keylist">
+                                <div><a href="/supplier-433394-corrugated-paper-packaging-box" title="Hộp bao bì giấy sóng">
+                           Hộp bao bì giấy sóng                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-433397-custom-paper-packaging-box" title="Hộp bao bì giấy tùy chỉnh">
+                           Hộp bao bì giấy tùy chỉnh                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-434470-paperboard-packaging-box" title="Hộp bao bì giấy bìa">
+                           Hộp bao bì giấy bìa                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-433405-paper-jigsaw-puzzle" title="Câu đố ghép hình bằng giấy">
+                           Câu đố ghép hình bằng giấy                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-434471-rigid-gift-box" title="Hộp quà cứng">
+                           Hộp quà cứng                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-433406-foldable-paper-box" title="Hộp giấy có thể gập lại">
+                           Hộp giấy có thể gập lại                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-433404-cardboard-paper-gift-box" title="Hộp quà giấy bìa cứng">
+                           Hộp quà giấy bìa cứng                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-434472-recycled-paper-gift-bag" title="Túi quà tặng giấy tái chế">
+                           Túi quà tặng giấy tái chế                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-434473-color-printing-brochure" title="Brochure in màu">
+                           Brochure in màu                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-433401-paper-hang-tag" title="Thẻ treo giấy">
+                           Thẻ treo giấy                        <i class="iconfont icon13next"></i></a></div>
+                                <div><a href="/supplier-434474-printed-paper-sticker" title="Giấy in nhãn dán">
+                           Giấy in nhãn dán                        <i class="iconfont icon13next"></i></a></div>
+                            </div>
+           
+        </div>
+    </div>
+    <div class="englishSelect">
+        <i class="iconfont icon13language"></i>
+        <form id="lanForm"></form>
+        <select id="language_change">
+                            <option value='http://m.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        English                    </option>
+                                <option value='http://m.french.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        French                    </option>
+                                <option value='http://m.german.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        German                    </option>
+                                <option value='http://m.italian.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Italian                    </option>
+                                <option value='http://m.russian.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Russian                    </option>
+                                <option value='http://m.spanish.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Spanish                    </option>
+                                <option value='http://m.portuguese.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Portuguese                    </option>
+                                <option value='http://m.dutch.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Dutch                    </option>
+                                <option value='http://m.greek.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Greek                    </option>
+                                <option value='http://m.japanese.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Japanese                    </option>
+                                <option value='http://m.korean.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Korean                    </option>
+                                <option value='http://m.arabic.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Arabic                    </option>
+                                <option value='http://m.hindi.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Hindi                    </option>
+                                <option value='http://m.turkish.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Turkish                    </option>
+                                <option value='http://m.indonesian.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Indonesian                    </option>
+                                <option value='http://m.vietnamese.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                    selected >
+                        Vietnamese                    </option>
+                                <option value='http://m.thai.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Thai                    </option>
+                                <option value='http://m.bengali.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Bengali                    </option>
+                                <option value='http://m.persian.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Persian                    </option>
+                                <option value='http://m.polish.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box'
+                     >
+                        Polish                    </option>
+                            </select>
+
+        </select>
+        <i class="iconfont icon13select"></i>
+    </div>
+</div>
+
+<div class="gothetop iconfont icontop_" id="back-top" style="display: block;"> </div>
+<div class="chatpl" id="chatpl"><a style='font-size: 0px;' href="/webim/webim_tab_mobile.html" target="_blank" rel="nofollow" onclick= 'setwebimCookie(69379,14212497,0);'> chat now<img src="/themes/mobile14/style/images/chat.png" alt="chat.png"></a></div><!-- 顶部search e-->
+<!-- // - content s -->
+
+<div class="main showdetail">
+    <div class="mainover">
+
+        <div class="tableMore1">
+            <div class="tableC">
+                <h1 class="tableT">Hộp quà giấy bìa cứng báo chí Komori 4C</h1>
+                <div class="tableS"> 
+                    <div class="companyL baobiao">
+                                                    <div>
+                                <div class="key">Điểm nổi bật</div>
+                                <div class="val"><h2 class='HighLight' style='display: inline-block;font-weight: bold;font-size: .28rem;'>Hộp quà tặng giấy bìa cứng Komori</h2>, <h2 class='HighLight' style='display: inline-block;font-weight: bold;font-size: .28rem;'> Hộp quà tặng giấy bìa cứng 4C</h2></div>
+                            </div>
+                                                                                <div>
+                                <div class="key">Nguồn gốc</div>
+                                <div class="val">Quảng Đông, Trung Quốc</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Hàng hiệu</div>
+                                <div class="val">Drake&Jill</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Số mô hình</div>
+                                <div class="val">CF-Box-10</div>
+                            </div>
+                                                                            <div>
+                                <div class="key">Số lượng đặt hàng tối thiểu</div>
+                                <div class="val">100-1000 bộ</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Giá bán</div>
+                                <div class="val">Fructuated</div>
+                            </div>
+                                                    <div>
+                                <div class="key">chi tiết đóng gói</div>
+                                <div class="val">Thùng giấy</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Thời gian giao hàng</div>
+                                <div class="val">7-14 ngày làm việc</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Điều khoản thanh toán</div>
+                                <div class="val">D / A, L / C, D / P, T / T, Western Union, MoneyGram</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Khả năng cung cấp</div>
+                                <div class="val">300000 Piece / Pieces mỗi tháng</div>
+                            </div>
+                                                                                                    <div>
+                                <div class="key">Tên sản phẩm</div>
+                                <div class="val">Hộp ngăn kéo trang sức</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Đặc tính</div>
+                                <div class="val">Vật liệu tái chế</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Logo</div>
+                                <div class="val">Có thể chấp nhận được</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Hình dạng</div>
+                                <div class="val">hình chữ nhật</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Màu sắc</div>
+                                <div class="val">Màu tùy chỉnh</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Sử dụng công nghiệp</div>
+                                <div class="val">Quà tặng &amp; Thủ công</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Xử lý in ấn</div>
+                                <div class="val">Matt Lamination</div>
+                            </div>
+                                                    <div>
+                                <div class="key">Vật liệu</div>
+                                <div class="val">các tông</div>
+                            </div>
+                        
+                                                                                                                                                                                                                                                            </div>
+                    <div class="Product_table_box ">
+                        <div style="">
+<div class="mceSectionContainer" data-section="AliPostDhMb-119at" data-section-title="Product Description" id="ali-anchor-AliPostDhMb-119at" style="padding-top: 8px;">
+<div style="padding: 10px 0px;">
+<p style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif;"><span style="font-size:22px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>LOGO tùy chỉnh Chất lượng tốt Bao bì Quà tặng Đồ trang sức Đóng gói Hộp ngăn kéo</strong></span></span></p>
+
+<p style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif;">&nbsp;</p>
+
+<p style=""><font face="arial, helvetica, sans-serif"><span style="font-size: 16px;"><b>Về mặt hàng này:</b></span></font></p>
+
+<p style=""><span style="font-size:16px;"><span style="color: rgb(51, 51, 51); font-family: arial, helvetica, sans-serif; text-align: justify;">Tác phẩm nghệ thuật của sản phẩm này thuộc về từng khách hàng và đây chỉ để bạn tham khảo.Chúng tôi không có bất kỳ tài sản trí tuệ nào để bán bất kỳ sản phẩm nào có nhãn hiệu thương mại này.</span></span></p>
+
+<p style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif;">&nbsp;</p>
+
+<p style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif;"><strong><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Sự chỉ rõ:</span></span></strong></p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif; overflow-wrap: break-word; width: 700px;" width="650">
+	<tbody>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Vật liệu</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Giấy mỹ thuật, bìa cứng, giấy đặc biệt, giấy mát, v.v.</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Kích thước</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Kích thước tùy chỉnh</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">In ấn</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">In CMYK / PMS hoặc in màu Pantone</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">MOQ</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">500 cái</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Định dạng tác phẩm nghệ thuật</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">AI, PDF, EPS, Tệp JPG độ phân giải cao</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Kết thúc &amp; Xử lý</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Cán bóng / mờ, sơn bóng, deboss / dập nổi, cắt laser, phủ UV, vàng / bạc, dập nóng, in lụa.</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Phụ kiện</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Ruy băng, tay cầm, kim cương, khóa, nút, vỉ, xốp, cửa sổ PVC / PET / PP, vải, nhung</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Cỗ máy</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Máy ép Heidelberg 4C, Máy ép Komori 4C, Máy ép nhãn UV 6C, Máy cán màng, máy bế, máy cắt, dập nóng</span></span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">Thời hạn giao hàng</span></span></td>
+			<td><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">FOB Thâm Quyến (Trung Quốc), CIF, CFR, EXW / Factory, Express, Door to Door</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif;"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><img data-height="1000" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135917_62436.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135917_62436.jpg" width="750" height="1000" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="414" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135917_81519.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135917_81519.jpg" width="750" height="414" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="1148" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135917_56469.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135917_56469.jpg" width="750" height="1148" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="1184" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135918_60767.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135918_60767.jpg" width="750" height="1184" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="872" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135918_39701.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135918_39701.jpg" width="750" height="872" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="768" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135918_62835.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135918_62835.jpg" width="750" height="768" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="1052" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135919_27660.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><img data-height="482" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135920_12196.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135920_12196.jpg" width="750" height="482" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="680" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135920_97750.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135920_97750.jpg" width="750" height="680" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="741" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135920_27430.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"><noscript><img src="/photo/paper-package/editor/20210903135920_27430.jpg" width="750" height="741" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript><img data-height="618" data-src="" data-width="750" src="/photo/paper-package/editor/20210903135921_64022.jpg" style="max-width: 320px;" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C"></span></span><noscript><img src="/photo/paper-package/editor/20210903135921_64022.jpg" width="750" height="618" class="lazyi" alt="H&#7897;p qu&agrave; gi&#7845;y b&igrave;a c&#7913;ng b&aacute;o ch&iacute; Komori 4C" style="max-width: 320px;"></noscript></p>
+</div>
+</div>
+
+<div class="mceSectionContainer" data-section="AliPostDhMb-xbu9a" data-section-title="Company Information" id="ali-anchor-AliPostDhMb-xbu9a" style="font-family: Arial, Helvetica; box-sizing: border-box; margin: 0px; padding: 8px 0px 0px; border: 0px; font-style: normal; font-weight: 400; font-size: 12px; line-height: inherit; vertical-align: baseline; color: rgb(51, 51, 51);">
+<div id="ali-title-AliPostDhMb-xbu9a" style="box-sizing: border-box; margin: 0px; padding: 8px 0px; border: 0px; vertical-align: baseline;"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="background-color: #ddd; color: #333; font-weight: bold; padding: 8px 10px; line-height: 12px;">Câu hỏi thường gặp</span></span></span></div>
+</div>
+
+<div class="mceSectionContainer" data-section="AliPostDhMb-rmtse" data-section-title="FAQ" id="ali-anchor-AliPostDhMb-rmtse" style="font-family: Arial, Helvetica; box-sizing: border-box; margin: 0px; padding: 8px 0px 0px; border: 0px; font-style: normal; font-weight: 400; font-size: 12px; line-height: inherit; vertical-align: baseline; color: rgb(51, 51, 51);">
+<div style="box-sizing: border-box; margin: 0px; padding: 10px 0px; border: 0px; vertical-align: baseline;">
+<p style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;">&nbsp;</p>
+
+<div style="box-sizing: border-box; margin: 0px; padding: 0px 4px; border: 0px; font-style: normal; font-weight: 400; font-size: 12px; line-height: inherit; font-family: Arial, Helvetica; vertical-align: top; color: #333333; display: block;">
+<div style="box-sizing: border-box; margin: 0px; padding: 4px 0px; border: 0px; vertical-align: top;">
+<div style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; font-size: 14px; line-height: inherit; vertical-align: baseline;"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(235, 140, 16);"><strong>1. Q: Làm Thế Nào Tôi có thể nhận được giá?</strong></span><br />A: Chúng tôi thường báo giá trong vòng 24 giờ sau khi chúng tôi nhận được yêu cầu của bạn (Trừ cuối tuần và ngày lễ).Nếu bạn đang rất gấp để lấy giá, vui lòng gửi email cho chúng tôi hoặc liên hệ với chúng tôi theo những cách khác để chúng tôi có thể cung cấp cho bạn báo giá.<br />
+<br />
+<span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(235, 140, 16);"><strong>2. Q: Tôi Có Thể mua mẫu trước khi đặt hàng không?</strong></span><br />
+A: Vâng. Xin vui lòng liên hệ với chúng tôi.<br />
+<br />
+<span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(235, 140, 16);"><strong>3. Q: thời gian dẫn của bạn là gì?</strong></span><br />
+A: Nó phụ thuộc vào số lượng đặt hàng và mùa bạn đặt hàng. Thông thường chúng tôi có thể giao hàng trong vòng 7-15 ngày đối với số lượng nhỏ và khoảng 30 ngày đối với số lượng lớn.<br />
+<br />
+<span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(235, 140, 16);"><strong>4. Q: Thời gian đảm bảo của bạn là bao lâu?</strong></span></span></span></span></div>
+
+<div style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; font-size: 14px; line-height: inherit; vertical-align: baseline;"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(0, 0, 0);">A: 2 tháng sau khi hàng hóa nhận được.</span></span></span></div>
+
+<div style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; font-size: 14px; line-height: inherit; vertical-align: baseline;">&nbsp;</div>
+
+<div style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; font-size: 14px; line-height: inherit; vertical-align: baseline;"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(235, 140, 16);"><strong>5. Q: Thời hạn thanh toán của bạn là gì?</strong></span><br />
+A: T / T, Western Union, L / C và Paypal. Điều này có thể thương lượng.<br />
+<br />
+<strong><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(0, 0, 255);"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-weight: inherit; line-height: 21px; vertical-align: baseline; color: rgb(235, 140, 16);">6. Q: phương thức vận chuyển là gì?</span></span></strong><br />
+A: Nó có thể được vận chuyển bằng đường biển, đường hàng không hoặc chuyển phát nhanh (EMS, UPS, DHL, TNT, FEDEX và vv) .Xin vui lòng xác nhận với chúng tôi trước khi đặt hàng.</span></span></span></div>
+</div>
+</div>
+</div>
+</div>
+
+<p style="font-family: &quot;ms sans serif&quot;, geneva, sans-serif;">&nbsp;</p>
+</div>                    </div>
+                    <div class="floatbot">
+                        <a href="/contactnow.html" onclick= 'setinquiryCookie("{\"pid\":14212497,\"name\":\"H\\u1ed9p qu\\u00e0 gi\\u1ea5y b\\u00eca c\\u1ee9ng b\\u00e1o ch\\u00ed Komori 4C\",\"source_url\":\"\\/sale-14212497-komori-4c-press-cardboard-paper-gift-box.html\",\"showproduct\":1,\"price\":\"Fructuated\",\"moq\":\"100-1000 b\\u1ed9\",\"propertyDetail\":[[\"T\\u00ean s\\u1ea3n ph\\u1ea9m\",\"H\\u1ed9p ng\\u0103n k\\u00e9o trang s\\u1ee9c\"],[\"\\u0110\\u1eb7c t\\u00ednh\",\"V\\u1eadt li\\u1ec7u t\\u00e1i ch\\u1ebf\"]],\"picurl\":\"\\/\\/m.vietnamese.paper-package.com\\/photo\\/pd35524695-komori_4c_press_cardboard_paper_gift_box.jpg\",\"subject\":\"B\\u1ea1n c\\u00f3 th\\u1ec3 cung c\\u1ea5pH\\u1ed9p qu\\u00e0 gi\\u1ea5y b\\u00eca c\\u1ee9ng b\\u00e1o ch\\u00ed Komori 4C\\u0110\\u1ed1i v\\u1edbi ch\\u00fang t\\u00f4i\",\"username\":\"cnjillhung\"}","","","","Giá tốt nhất");'>
+                            <span class="iconfont icon13sent">Đưa ra yêu cầu của bạn                        </a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="moban bestfor">
+    <span class="mobanTitle">Nhận giá tốt nhất cho</span>
+    <div class="mobanContent">
+        <div class="company_font flex_l">
+          <div class="l_img"><img class="intercept" src="//m.vietnamese.paper-package.com/photo/pd35524695-h_p_qu_gi_y_b_a_c_ng_b_o_ch_komori_4c.jpg" alt="small.img.alt" /></div>
+          <div class="flexjust">
+                <h2 class="r_font_t">Hộp quà giấy bìa cứng báo chí Komori 4C</h2>
+                                                                                                                                                                                                                                       </div>
+        </div>
+        <p>
+            <a href="/contactnow.html" onclick='setinquiryCookie("{\"pid\":14212497,\"name\":\"H\\u1ed9p qu\\u00e0 gi\\u1ea5y b\\u00eca c\\u1ee9ng b\\u00e1o ch\\u00ed Komori 4C\",\"source_url\":\"\\/sale-14212497-komori-4c-press-cardboard-paper-gift-box.html\",\"showproduct\":1,\"price\":\"Fructuated\",\"moq\":\"100-1000 b\\u1ed9\",\"propertyDetail\":[[\"T\\u00ean s\\u1ea3n ph\\u1ea9m\",\"H\\u1ed9p ng\\u0103n k\\u00e9o trang s\\u1ee9c\"],[\"\\u0110\\u1eb7c t\\u00ednh\",\"V\\u1eadt li\\u1ec7u t\\u00e1i ch\\u1ebf\"]],\"picurl\":\"\\/\\/m.vietnamese.paper-package.com\\/photo\\/pd35524695-komori_4c_press_cardboard_paper_gift_box.jpg\",\"subject\":\"File not found.\",\"username\":\"cnjillhung\"}","","","","Giá tốt nhất");' class="siglebtn wid200 next">Tiếp tục<span class="iconfont icon13next"></span>
+            </a>
+        </p>
+    </div>
+</div>        
+        <div class="saveYourTime">
+            <div class="saveLogo">
+                <img src="/themes/mobile14/style/images/requirement_img_savetime.png" alt="requirement_img_savetime">
+            </div>
+            <div class="saveText">
+                <span>Tiết kiệm thời gian của bạn</span>
+                <p>Hãy để chúng tôi liên hệ với sản phẩm tốt nhất với bạn.</p>
+                <a href="/contactnow.html" onclick= 'setinquiryCookie(pinfo,"","","","Liên hệ chúng tôi");'>Đưa ra yêu cầu của bạn</a>
+            </div>
+        </div>
+
+        <div class="linklist">
+            <a href="/products.html"><i class="iconfont icon13next"></i>các sản phẩm</a>
+            <a href="/supplier--[name]" title="">
+                           <i class="iconfont icon13next"></i></a>
+        </div>
+       
+        <!-- 底部导航 s-->
+         <div class="m_footer ">
+    <div class="link_to_box flex_lr ">
+            <a class="intercept" title="" href="/">Nhà</a>            <div class="bar_col_foot"></div>
+           <a class="intercept" title="" href="/aboutus.html">Về chúng tôi</a>            <div class="bar_col_foot"></div>
+            <a class="intercept" title="" href="/contactnow.html">Liên hệ với chúng tôi</a>            <div class="bar_col_foot"></div>
+            <a target="blank" href="//www.paper-package.com/quality-14212497d-komori-4c-press-cardboard-paper-gift-box" class="">Desktop Site</a>
+    </div>
+    <div class="f_vertif">
+            All Rights Reserved. Phẩm chất <a href=/buy-h-p-qu-gi-y-b-a-c-ng.html target='_blank'><h2>Hộp quà giấy bìa cứng</h2></a> Nhà máy trung quốc.    </div>
+    <div class="f_share_box flex_lr ">
+                <a class="face intercept" >
+                   companyInfo facebook <span><i class="iconfont icon13facebook"></i></span>
+                </a>
+                <a class="in intercept" >
+                    companyInfo twitter<span><i class="iconfont icon13twitter"></i></span>
+                </a>
+                <a class="tw intercept" >
+                    companyInfo linkedin<span><i class="iconfont icon13linkedin"></i></span>
+                </a>
+    </div>
+</div>
+
+            <!-- 底部导航 e-->
+    </div>
+</div>
+<!-- // - content e -->
+<script src="/themes/mobile14/js/jquery.min.js?t=1012"></script>
+<script src="/themes/mobile14/js/common.js?t=1012"></script>
+
+<script type="text/javascript">
+
+    (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.async = true;
+        e.src = '/stats.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(e, s);
+    })();
+</script>
+<script type="text/javascript">
+    $(function(){
+        var t = $(".bestfor").offset().top,f = 0,h = window.innerHeight;
+        $(window).scroll(function(){
+            if( $(this).scrollTop() > t-h){
+                $(".floatbot").hide();
+            } else{
+               $(".floatbot").show();
+            }
+        })  
+    });
+</script>
+<noscript><img style="display:none" src="/stats.php" rel="nofollow" /></noscript>
+</body>
+
+</html>
+<!-- static:2022-02-14 07:36:54 -->
